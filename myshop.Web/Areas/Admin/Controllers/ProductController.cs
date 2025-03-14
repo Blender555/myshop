@@ -17,16 +17,19 @@ namespace myshop.Web.Areas.Admin.Controllers
             _unitOfWork = unitOfWork;
             _webHostEnvironment = webHostEnvironment;
         }
+
         public IActionResult Index()
         {
             return View();
         }
+
         [HttpGet]
         public IActionResult GetData()
         {
             var categories = _unitOfWork.Product.GetAll(Includeword:"Category");
             return Json(new {data = categories});
         }
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -41,6 +44,7 @@ namespace myshop.Web.Areas.Admin.Controllers
             };
             return View(productVM);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Create(ProductVM productVM,IFormFile file)
@@ -68,6 +72,7 @@ namespace myshop.Web.Areas.Admin.Controllers
             }
             return View(productVM.Product);
         }
+
         [HttpGet]
         public IActionResult Edit(int? id)
         {
@@ -87,6 +92,7 @@ namespace myshop.Web.Areas.Admin.Controllers
             };
             return View(productVM);
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(ProductVM productVM, IFormFile? file)
@@ -122,6 +128,7 @@ namespace myshop.Web.Areas.Admin.Controllers
             }
             return View(productVM.Product);
         }
+      
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
