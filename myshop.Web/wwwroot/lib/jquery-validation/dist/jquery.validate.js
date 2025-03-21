@@ -13,6 +13,17 @@
 		module.exports = factory( require( "jquery" ) );
 	} else {
 		factory( jQuery );
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>My App</title>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://localhost:7020/Identity/lib/jquery-validation/dist/jquery.validate.js"></script>
+            </head>
+            <body>
+                <!-- Your content here -->
+            </body>
+            </html>
 	}
 }(function( $ ) {
 
